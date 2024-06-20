@@ -82,15 +82,6 @@ public class Parqueadero {
     }
 
 
-    //Metodo para mostrar informacion
-    public String info() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("La tarifa inicial es: " + tarifa);
-        sb.append("\nLa hora inicial es: " + hora);
-        sb.append("\nCarros en el parqueadero:" + puestos.size());
-    return toString();
-    }
-
     //Metodo para mostrar puestos disponibles
     public int consultarPuestosDisponibles(){
         int disponibles = 0;
@@ -112,7 +103,7 @@ public class Parqueadero {
     // Avanzar el reloj
     public void avanzarReloj(int horas) {
         if (hora + horas > 18) {
-            JOptionPane.showMessageDialog(null, "No se puede avanzar el reloj más allá de las 21:00.");
+            JOptionPane.showMessageDialog(null, "El reloj avanza solo hasta las 18:00.");
         } else {
             hora += horas;
             JOptionPane.showMessageDialog(null,"La hora actual es: " + hora + ":00.");
@@ -121,5 +112,23 @@ public class Parqueadero {
 
     public int getHora() {
         return hora;
+    }
+
+    public void cambiarTarifa(double nuevaTarifa){
+        this.tarifa = nuevaTarifa;
+        JOptionPane.showMessageDialog(null, "La nueva tarifa es : $ " + tarifa + " por hora");
+    }
+
+    public double getTarifa() {
+        return tarifa;
+    }
+
+    //Metodo para mostrar informacion
+    public String info() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("La tarifa inicial es: " + tarifa);
+        sb.append("\nLa hora inicial es: " + hora);
+        sb.append("\nPuestos disponibles:" + consultarPuestosDisponibles());
+        return toString();
     }
 }
