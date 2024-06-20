@@ -39,7 +39,7 @@ public class Parqueadero {
 
                 //Si el puesto no esta disponible
                 if (!puesto.estaDisponible() && puesto.getCarro().getPlaca().equals(placa)) {
-                    JOptionPane.showMessageDialog(null, "Ya hay un carro con esa placa");
+                    JOptionPane.showMessageDialog(null, "Ya existe un carro con esa placa");
                     return;
                 }
 
@@ -49,7 +49,7 @@ public class Parqueadero {
                 Puesto puesto = puestos.get(i);
                 if (puesto.estaDisponible()) {
                     puesto.asignarCarro(new Carro(placa, horaEntrada));
-                    JOptionPane.showMessageDialog(null, "Carro ingresado en el puesto: " + puesto.getNumero());
+                    JOptionPane.showMessageDialog(null, "Carro en el puesto: " + puesto.getNumero());
                     return;
                 }
             }
